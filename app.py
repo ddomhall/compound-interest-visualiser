@@ -18,9 +18,6 @@ app.config["SESSION_PERMANENT"] = False
 app.config["SESSION_TYPE"] = "filesystem"
 Session(app)
 
-# Configure CS50 Library to use SQLite database
-db = SQL("sqlite:///finance.db")
-
 
 @app.after_request
 def after_request(response):
@@ -52,20 +49,26 @@ def index():
 
     if request.method == "POST":
 
-        fields = {
-            'start': datetime.strptime(request.form.get('start'), '%Y-%m'),
-            'contribution': float(request.form.get('contribution')),
-            'value': float(request.form.get('value')),
-            'performance': float(request.form.get('performance')),
-            'target': float(request.form.get('target')),
-        }
+        try:
+            fields = {
+                'start': datetime.strptime(request.form.get('start'), '%Y-%m'),
+                'contribution': float(request.form.get('contribution')),
+                'value': float(request.form.get('value')),
+                'performance': float(request.form.get('performance')),
+                'target': float(request.form.get('target')),
+            }
 
-        x = [fields['start']]
-        y = [fields['value']]
-        while y[-1] < fields['target']:
-            x.append(x[-1] + relativedelta(months=1))
-            y.append(y[-1] + fields['contribution'] + ((y[-1] + fields['contribution']) * fields['performance']/100/12))
-        ax.plot(x, y)
+            x = [fields['start']]
+            y = [fields['value']]
+
+            while y[-1] < fields['target']:
+                x.append(x[-1] + relativedelta(months=1))
+                y.append(y[-1] + fields['contribution'] + ((y[-1] + fields['contribution']) * fields['performance']/100/12))
+
+            ax.plot(x, y, color="white")
+            fields['start'] = datetime.strftime(fields['start'], '%Y-%m')
+        except ValueError:
+            return apology('invalid data')
 
     # Save it to a temporary buffer.
     buf = BytesIO()
