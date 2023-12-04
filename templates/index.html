@@ -1,0 +1,39 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+    <div class="flex gap-6 justify-center">
+        <aside class="gap-6 min-w-fit flex flex-col">
+            <form action="/logout" class="w-full rounded-3xl ring ring-white p-6 m-auto flex flex-col">
+                <input type="submit" value="logout" class="text-white ring ring-white rounded-xl cursor-pointer"/>
+            </form>
+            <form action="/" method="post" class="w-full rounded-3xl ring ring-white flex flex-col p-6 m-auto gap-6">
+                <label for="start" class="text-white flex justify-between">start date
+                    <input name="start" id="start" type="month" class="rounded-xl w-36 text-black"/>
+                </label>
+                <label for"contribution" class="text-white flex justify-between">contribution
+                    <input name="contribution" id="contribution" type="number" class="rounded-xl w-36 text-black"/>
+                </label>
+                <label for"value" class="text-white flex justify-between">starting value
+                    <input name="value" id="value" type="number" class="rounded-xl w-36 text-black"/>
+                </label>
+                <label for"performance" class="text-white flex justify-between">expected performance
+                    <input name="performance" id="performance" type="number" class="ml-6 rounded-xl w-36 text-black"/>
+                </label>
+                <label for"target" class="text-white flex justify-between">target value
+                    <input name="target" id="target" type="number" class="ml-6 rounded-xl w-36 text-black"/>
+                </label>
+                <input type="submit" value="update" class="text-white ring ring-white rounded-xl cursor-pointer"/>
+            </form>
+            <form action="/" class="w-full rounded-3xl ring ring-white p-6 m-auto flex flex-col">
+                <input type="submit" value="input actuals" class="text-white ring ring-white rounded-xl cursor-pointer"/>
+            </form>
+        </aside>
+        <center class="p-6 ring ring-white rounded-3xl h-[376.415]">
+            {{ data }}
+        </center>
+    </div>
+{% endblock %}

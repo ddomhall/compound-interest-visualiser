@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    home
+{% endblock %}
+
+{% block main %}
+    <div class="h-96 w-96 rounded-3xl ring ring-white flex flex-col gap-6 p-6 relative m-auto">
+        <div class="text-white leading-[20]">retirement tracker</div>
+        <div class="absolute bottom-3 inset-x-0 flex justify-between p-6">
+            <a href="/login" class="text-white ring ring-white rounded-xl w-24">login</a>
+            <a href="/" class="text-white ring ring-white rounded-xl w-24">try it</a>
+            <a href="/register" class="text-white ring ring-white rounded-xl w-24">register</a>
+        </div>
+    </div>
+{% endblock %}

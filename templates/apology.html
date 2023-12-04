@@ -1,0 +1,12 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    error
+{% endblock %}
+
+{% block main %}
+    <!-- https://memegen.link/ -->
+    <div class="h-96 w-96 rounded-3xl ring ring-white flex flex-col gap-6 p-6 relative m-auto">
+        <img alt="{{ bot }}" src="https://api.memegen.link/images/mini-keanu/_/{{ bot | urlencode }}.jpg" title="{{ bot }}">
+    </div>
+{% endblock %}

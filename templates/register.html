@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    create account
+{% endblock %}
+
+{% block main %}
+    <form action="/register" method="post" class="h-96 w-96 rounded-3xl ring ring-white flex flex-col gap-6 p-6 relative m-auto">
+        <h1 class="text-white">register</h1>
+        <input autocomplete="off" autofocus name="username" placeholder="Username" type="text" class="rounded-xl">
+        <input name="password" placeholder="Password" type="password" class="rounded-xl">
+        <input name="confirmation" placeholder="Confirm Password" type="password" class="rounded-xl">
+        <input type="submit" value="register" class="ring ring-white text-white rounded-xl"/>
+        <div class="absolute bottom-3 inset-x-0 flex justify-between p-6">
+            <a href="/home" class="text-white ring ring-white rounded-xl w-24">home</a>
+            <a href="/login" class="text-white ring ring-white rounded-xl w-24">log in</a>
+        </div>
+    </form>
+{% endblock %}
+

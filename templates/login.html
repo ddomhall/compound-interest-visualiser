@@ -1,0 +1,18 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Log In
+{% endblock %}
+
+{% block main %}
+    <form action="/login" method="post" class="h-96 w-96 rounded-3xl ring ring-white flex flex-col gap-6 p-6 relative m-auto">
+        <h1 class="text-white">log in</h1>
+        <input autocomplete="off" autofocus name="username" placeholder="Username" type="text" class="rounded-xl">
+        <input name="password" placeholder="Password" type="password" class="rounded-xl">
+        <input type="submit" value="log in" class="ring ring-white text-white rounded-xl"/>
+        <div class="absolute bottom-3 inset-x-0 flex justify-between p-6">
+            <a href="/home" class="text-white ring ring-white rounded-xl w-24">home</a>
+            <a href="/register" class="text-white ring ring-white rounded-xl w-24">register</a>
+        </div>
+    </form>
+{% endblock %}
