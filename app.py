@@ -21,15 +21,7 @@ def index():
     ax.tick_params(axis='y', colors='white')
     ax.spines['bottom'].set_color('white')
     ax.spines['left'].set_color('white')
-
-    fields = {
-        'start': '', 
-        'contribution': '',
-        'value': '',
-        'performance': '',
-        'target': '',
-    }
-
+    ax.ticklabel_format(style="plain")
     if request.method == "POST":
 
         try:
@@ -52,6 +44,15 @@ def index():
             fields['start'] = datetime.strftime(fields['start'], '%Y-%m')
         except ValueError:
             return apology('invalid data')
+    else:
+        
+        fields = {
+            'start': '', 
+            'contribution': '',
+            'value': '',
+            'performance': '',
+            'target': '',
+        }
 
     # Save it to a temporary buffer.
     buf = BytesIO()
