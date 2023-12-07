@@ -5,3 +5,4 @@ requests
 matplotlib
 markupsafe
 datetime
+python-dotenv
