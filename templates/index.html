@@ -8,19 +8,19 @@
     <div class="flex gap-6 justify-center">
         <form action="/" method="post" class="full rounded-3xl ring ring-white flex flex-col p-6 gap-6">
             <label for="start" class="text-white flex justify-between">start date
-                <input name="start" id="start" type="month" value="{{ fields['start'] }}" class="rounded-xl w-36 text-black"/>
+                <input name="start" id="start" type="month" value="{{ fields['start'] }}" class="rounded-xl w-36 text-black px-1"/>
             </label>
             <label for"target" class="text-white flex justify-between">target value
-                <input name="target" id="target" type="number" value="{{ fields['target'] }}" class="ml-6 rounded-xl w-36 text-black"/>
+                <input name="target" id="target" type="number" value="{{ fields['target'] }}" class="ml-6 rounded-xl w-36 text-black px-1"/>
             </label>
             <label for"value" class="text-white flex justify-between">starting value
-                <input name="value" id="value" type="number" value="{{ fields['value'] }}" class="rounded-xl w-36 text-black"/>
+                <input name="value" id="value" type="number" value="{{ fields['value'] }}" class="rounded-xl w-36 text-black px-1"/>
             </label>
             <label for"contribution" class="text-white flex justify-between">monthly contribution
-                <input name="contribution" id="contribution" type="number" value="{{ fields['contribution'] }}" class="rounded-xl w-36 text-black"/>
+                <input name="contribution" id="contribution" type="number" value="{{ fields['contribution'] }}" class="rounded-xl w-36 text-black px-1"/>
             </label>
             <label for"performance" class="text-white flex justify-between">expected performance (%)
-                <input name="performance" id="performance" type="number" value="{{ fields['performance'] }}" class="ml-6 rounded-xl w-36 text-black"/>
+                <input name="performance" id="performance" type="number" value="{{ fields['performance'] }}" class="ml-6 rounded-xl w-36 text-black px-1"/>
             </label>
             <input type="submit" value="update" class="text-white ring ring-white rounded-xl cursor-pointer"/>
         </form>

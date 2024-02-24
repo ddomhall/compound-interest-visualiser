@@ -22,8 +22,16 @@ def index():
     ax.spines['bottom'].set_color('white')
     ax.spines['left'].set_color('white')
     ax.ticklabel_format(style="plain")
-    if request.method == "POST":
 
+    if request.method == "GET":
+        fields = {
+            'start': '', 
+            'contribution': '',
+            'value': '',
+            'performance': '',
+            'target': '',
+        }
+    else:
         try:
             fields = {
                 'start': datetime.strptime(request.form.get('start'), '%Y-%m'),
@@ -44,16 +52,7 @@ def index():
             fields['start'] = datetime.strftime(fields['start'], '%Y-%m')
         except ValueError:
             return apology('invalid data')
-    else:
         
-        fields = {
-            'start': '', 
-            'contribution': '',
-            'value': '',
-            'performance': '',
-            'target': '',
-        }
-
     # Save it to a temporary buffer.
     buf = BytesIO()
     fig.savefig(buf, format="png")
