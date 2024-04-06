@@ -8,12 +8,10 @@ from datetime import datetime
 import base64
 import os
 
-# Configure application
 app = Flask(__name__)
 
 @app.route("/", methods=["GET", "POST"])
 def index():
-    # Generate the figure **without using pyplot**.
     fig = Figure(figsize=[9.06, 3.14], facecolor="black", layout="constrained")
     ax = fig.subplots()
     ax.patch.set_facecolor('black')
@@ -53,9 +51,10 @@ def index():
         except ValueError:
             return apology('invalid data')
         
-    # Save it to a temporary buffer.
     buf = BytesIO()
     fig.savefig(buf, format="png")
-    # Embed the result in the html output.
     data = base64.b64encode(buf.getbuffer()).decode("ascii")
     return render_template('index.html', data=Markup(f"<img src='data:image/png;base64,{data}' class='h-full rounded-2xl'/>"), fields=fields)
+
+if __name__ == '__main__':
+    app.run(debug=True, host='0.0.0.0')
