@@ -8,19 +8,19 @@
     <div class="flex gap-6 justify-center">
         <form action="/" method="post" class="full rounded-3xl ring ring-white flex flex-col p-6 gap-6">
             <label for="start" class="text-white flex justify-between">start date
-                <input name="start" id="start" type="month" value="{{ fields['start'] }}" class="rounded-xl w-36 text-black px-1" required/>
+                <input name="start" id="start" type="month" value="{{ '%.2f' | format(fields['start'] | float )}}" class="rounded-xl w-36 text-black px-1" required/>
             </label>
             <label for"target" class="text-white flex justify-between">target value
-                <input name="target" id="target" type="number" value="{{ fields['target'] }}" step="0.01" class="ml-6 rounded-xl w-36 text-black px-1" required/>
+                <input name="target" id="target" type="number" value="{{ '%.2f' | format(fields['target'] | float )}}" step="0.01" class="ml-6 rounded-xl w-36 text-black px-1" required/>
             </label>
             <label for"value" class="text-white flex justify-between">starting value
-                <input name="value" id="value" type="number" value="{{ fields['value'] }}" step="0.01" class="rounded-xl w-36 text-black px-1" required/>
+                <input name="value" id="value" type="number" value="{{ '%.2f' | format(fields['value'] | float )}}" step="0.01" class="rounded-xl w-36 text-black px-1" required/>
             </label>
             <label for"contribution" class="text-white flex justify-between">monthly contribution
-                <input name="contribution" id="contribution" type="number" value="{{ fields['contribution'] }}" step="0.01" class="rounded-xl w-36 text-black px-1" required/>
+                <input name="contribution" id="contribution" type="number" value="{{ '%.2f' | format(fields['contribution'] | float )}}" step="0.01" class="rounded-xl w-36 text-black px-1" required/>
             </label>
             <label for"performance" class="text-white flex justify-between">expected performance (%)
-                <input name="performance" id="performance" type="number" value="{{ fields['performance'] }}" step="0.01" class="ml-6 rounded-xl w-36 text-black px-1" required/>
+                <input name="performance" id="performance" type="number" value="{{ '%.2f' | format(fields['performance'] | float )}}" step="0.01" class="ml-6 rounded-xl w-36 text-black px-1" required/>
             </label>
             <input type="submit" value="update" class="text-white ring ring-white rounded-xl cursor-pointer"/>
         </form>
